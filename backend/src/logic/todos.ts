@@ -24,3 +24,7 @@ export async function createTodo(userId: string, newTodo: CreateTodoRequest): Pr
 export async function updateTodo(userId: string, todoId: string, updatedTodo: UpdateTodoRequest): Promise<TodoItem> {
     return await todoAccess.updateTodo(userId, todoId, updatedTodo) as TodoItem;
 }
+
+export async function deleteTodo(userId: string, todoId: string): Promise<void> {
+    await todoAccess.deleteTodo(userId, todoId);
+}
