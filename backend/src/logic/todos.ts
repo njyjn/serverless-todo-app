@@ -19,3 +19,7 @@ export async function createTodo(userId: string, newTodo: CreateTodoRequest): Pr
     } as TodoItem;
     return await todoAccess.createTodo(newItem);
 }
+
+export async function updateTodo(userId: string, todoId: string, updatedTodo: UpdateTodoRequest): Promise<TodoItem> {
+    return await todoAccess.updateTodo(userId, todoId, updatedTodo) as TodoItem;
+}
