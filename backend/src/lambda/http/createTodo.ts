@@ -12,14 +12,14 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
   // TODO: Implement creating a new TODO item
   try {
     const userId = event.requestContext.authorizer.principalId;
-    await createTodo(userId, newTodo);
+    const todo = await createTodo(userId, newTodo);
     return {
         statusCode: 201,
         headers: {
           'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify({
-          item: newTodo
+          item: todo
         })  
     }
   } catch (e) {
