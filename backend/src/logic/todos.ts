@@ -2,14 +2,15 @@ import { TodoItem } from 'src/models/TodoItem';
 import { CreateTodoRequest } from 'src/requests/CreateTodoRequest';
 import { TodoAccess } from '../dataLayer/todoAccess'
 import { v4 as uuidv4 } from 'uuid';
+import { UpdateTodoRequest } from 'src/requests/UpdateTodoRequest';
+
+const todoAccess = new TodoAccess();
 
 export async function getTodos(userId: string) {
-    const todoAccess = new TodoAccess();
     return await todoAccess.getTodos(userId);
 }
 
 export async function createTodo(userId: string, newTodo: CreateTodoRequest): Promise<TodoItem> {
-    const todoAccess = new TodoAccess();
     const newItem = {
         userId: userId,
         todoId: uuidv4(),
